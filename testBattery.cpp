@@ -9,5 +9,5 @@ TEST_CASE("detect set of values  from  specified range within input array of int
    int sampleRange[] ={4,5};
    int startBatteryRange = 4;
    int endBatteryRange = 5;
-   REQUIRE(getBatteryRange(sampleArray,startRangeValue,endRangeValue) == 2);
+   REQUIRE(getBatteryRange(sampleRange,startBatteryRange,endBatteryRange) == 2);
 }
