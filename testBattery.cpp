@@ -6,8 +6,8 @@
 
 //TDD_STEP1: Write only the test code without the actual definition in .c file
 TEST_CASE("detect set of values  from  specified range within input array of integers") {
-   int sampleRange[] ={2,3, 3, 5, 4, 10, 11, 12};
-   int startBatteryRange = 3;
+   int sampleRange[] ={4,5};
+   int startBatteryRange = 4;
    int endBatteryRange = 5;
-   REQUIRE(getBatteryRange(sampleArray,startRangeValue,endRangeValue) == 4);
+   REQUIRE(getBatteryRange(sampleArray,startRangeValue,endRangeValue) == 2);
 }
