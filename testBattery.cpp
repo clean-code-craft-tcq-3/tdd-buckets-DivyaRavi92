@@ -5,7 +5,7 @@
 
 
 //TDD_STEP1: Write only the test code without the actual definition in .c file
-TEST_CASE("detect set of values  from  specified range within input array of integers") {
+TEST_CASE("test1-no definition") {
    int sampleRange[] ={4,5};
    int startBatteryRange = 4;
    int endBatteryRange = 5;
@@ -13,7 +13,7 @@ TEST_CASE("detect set of values  from  specified range within input array of int
 }
 
 //TDD_STEP2: Write the actual definition in .c file but without any content, so test will fail
-TEST_CASE("detect set of values  from  specified range within input array of integers") {
+TEST_CASE("test2-test condition fails") {
    int sampleRange[] ={4,5};
    int startBatteryRange = 4;
    int endBatteryRange = 5;
@@ -21,7 +21,7 @@ TEST_CASE("detect set of values  from  specified range within input array of int
 }
 
 //TDD_STEP1: Write he actual definition in .c file so the test will pass
-TEST_CASE("detect set of values  from  specified range within input array of integers") {
+TEST_CASE("test3 - test condition pass") {
    int sampleRange[] ={4,5};
    int startBatteryRange = 4;
    int endBatteryRange = 5;
