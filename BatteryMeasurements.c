@@ -8,19 +8,20 @@ int getBatteryRange(int *RangeInput, int startRange, int endRange)
    arrayLength = sizeof(RangeInput);
    for(int rangeElm=0; rangeElm < arrayLength ; rangeElm++)
    {
-       checkValueInRange(RangeInput[rangeElm],startRange,endRange, &valueInRange))
+      valueInRange = checkValueInRange(RangeInput[rangeElm],startRange,endRange, valueInRange))
       
    }
   printf("\n%d-%d,%d",startRange,endRange,valueInRange);
   return valueInRange;  
 }
 
-void checkValueInRange(int value,int startRange ,int endRange, int * RangeCheck)
+int checkValueInRange(int value,int startRange ,int endRange, int RangeCheck)
 {
   if((value >= startRange) && (value <= endRange))
   {
-    *RangeCheck++;
+    RangeCheck++;
   }
+  return RangeCheck;
 }
 
 
