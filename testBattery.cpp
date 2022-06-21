@@ -10,7 +10,7 @@ TEST_CASE("test1-no definition") {
    int startBatteryRange = 4;
    int endBatteryRange = 5;
    int arrayLength = sizeof(sampleRange)/ sizeof(sampleRange[0]);
-   REQUIRE(getBatteryRange(sampleRange,startBatteryRange,endBatteryRange) == 2);
+   REQUIRE(getBatteryRange(sampleRange,startBatteryRange,endBatteryRange) == 1);
 }
 
 //TDD_STEP2: Write the actual definition in .c file but without any content, so test will fail
@@ -19,14 +19,5 @@ TEST_CASE("test2-test condition fails") {
    int startBatteryRange = 3;
    int endBatteryRange = 5;
    int arrayLength = sizeof(sampleRange)/ sizeof(sampleRange[0]);
-   REQUIRE(getBatteryRange(sampleRange,startBatteryRange,endBatteryRange) == 4);
-}
-
-//TDD_STEP3: Write he actual definition in .c file so the test will pass
-TEST_CASE("test3 - test condition pass") {
-   int sampleRange[] ={3,3,5,4,10,11,12};
-   int startBatteryRange = 3;
-   int endBatteryRange = 5;
-   int arrayLength = sizeof(sampleRange)/ sizeof(sampleRange[0]);
-   REQUIRE(getBatteryRange(sampleRange,startBatteryRange,endBatteryRange) == 4);
+   REQUIRE(getBatteryRange(sampleRange,startBatteryRange,endBatteryRange) == 1);
 }
