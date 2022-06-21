@@ -1,4 +1,7 @@
 #include <stdio.h>
 
-int getBatteryRange(int *RangeInput, int startRange, int endRange);
-int checkValueInRange(int value,int startRange ,int endRange, int RangeCheck);
+void sortArray(int *RangeInput, int length, int startRange, int endRange);
+bool getBatteryRange(int *RangeInput, int length, int startRange, int endRange)
+
+bool checkConsecutive(int *RangeInput, int size)
+void printOnConsole(int* readings, int* begin, int* end, int* length); 
