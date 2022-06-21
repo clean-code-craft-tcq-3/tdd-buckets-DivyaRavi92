@@ -20,7 +20,7 @@ void sortArray(int *RangeInput, int length)
     
 }
 
-bool checkConsecutive(int *RangeInput, int size)
+int checkConsecutive(int *RangeInput, int size)
 {
     int readings[size];
     int begin[size];
@@ -32,47 +32,35 @@ bool checkConsecutive(int *RangeInput, int size)
         if (RangeInput[startEl+1] - RangeInput[startEl] == 0 || RangeInput[startEl+1] - RangeInput[startEl] == 1)
         {
           isConsecutive +=1;
-          if(isConsecutive == 1)
-          {
-            begin[k] = RangeInput[startEl];
-            rangeCheckIsConsecutive = true;
-          }
         }
-        else  if(isConsecutive >= 1)
-        {   
-            readings[k] = isConsecutive+1; end[k] = RangeInput[startEl];
-            k++;
-            isConsecutive = 0;
+        else
+        {
+            return isConsecutive;  
         }
     }
-    if(isConsecutive >= 1)
-    {   
-        readings[k] = isConsecutive+1; end[k] = RangeInput[startEl];
-        isConsecutive = 0;
-    } 
-    int readingsLength = k;
-    printOnConsole(readings, begin, end, readingsLength);
-    return rangeCheckIsConsecutive;
+    return isConsecutive;  
 }
+
+void printOnConsole(int* RangeInput, int size)   
+{
+   for(int i  = 0; i <= size; i++)
+   {
+        printf("Range=%d\n", size);
+        printf("begin=%d\n", RangeInput[0]);
+        printf("end=%d\n", RangeInput[size-1]);
+   }
+
+}
+
 bool getBatteryRange(int *RangeInput, int length, int startRange, int endRange)
 {
    sortArray(RangeInput, length);
    printf("sorted array\n");
-   for(int i=0;i<length;i++)
+   int  ConsecutiveVal  = checkConsecutive(RangeInput, length);
+   if(ConsecutiveVal >= 1)
    {
-       printf("%d\n",RangeInput[i]);
+       int size = ConsecutiveVal+1;
+       printOnConsole(RangeInput, size);
    }
-   bool  rangeCheckIsConsecutive = checkConsecutive(RangeInput, length);
-   return rangeCheckIsConsecutive;
+   return true;
 }  
-
-void printOnConsole(int* readings, int* begin, int* end, int* length)   
-{
-   for(int i  = 0; i <= length; i++)
-   {
-        printf("readings=%d\n", readings[i]);
-        printf("begin=%d\n", begin[i]);
-        printf("end=%d\n", end[i]);
-   }
-
-}
