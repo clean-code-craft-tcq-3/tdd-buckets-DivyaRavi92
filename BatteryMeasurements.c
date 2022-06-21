@@ -1,7 +1,7 @@
 #include "BatteryMeasurements.h"
 #include "stdbool.h"
 
-void sortArray(int *RangeInput, int length, int startRange, int endRange)
+void sortArray(int *RangeInput, int length)
 {
     int tempElm;
     for (int startEl=0; startEl < length; ++startEl)
@@ -56,7 +56,7 @@ bool checkConsecutive(int *RangeInput, int size)
 }
 bool getBatteryRange(int *RangeInput, int length, int startRange, int endRange)
 {
-   sortArray(RangeInput, length, startRange, endRange);
+   sortArray(RangeInput, length);
    printf("sorted array\n");
    for(int i=0;i<length;i++)
    {
