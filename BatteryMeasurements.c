@@ -56,6 +56,10 @@ bool getBatteryRange(int *RangeInput, int length, int startRange, int endRange)
 {
    sortArray(RangeInput, length);
    printf("sorted array\n");
+   for(int i=0;i<length;i++)
+   {
+       printf("%d\n",RangeInput[i]);
+   }
    int  ConsecutiveVal  = checkConsecutive(RangeInput, length);
    if(ConsecutiveVal >= 1)
    {
