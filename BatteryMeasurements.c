@@ -18,10 +18,10 @@ void sortArray(int *RangeInput, int length)
     }    
 }
 
-void printOnConsole(int* RangeInput, int size)   
+void printOnConsole(int startVal, int endVal, int size)   
 {
     printf("Range - Readings\n");
-    printf("%d - %d, %d\n", RangeInput[0], RangeInput[size-1], size);
+    printf("%d - %d, %d\n", startVal, endVal, size);
 }
 
 int isConsecutive(int diff)
@@ -41,7 +41,7 @@ void sortedArrayPrintOnConsole(int * RangeInput,int length)
    }
 }
 
-bool getBatteryRange(int *RangeInput, int length, int startRange, int endRange)
+bool getBatteryRange(int *RangeInput, int length)
 {
    int consecutivecount = 0;
    bool isRangeContinuous = false;
@@ -49,7 +49,7 @@ bool getBatteryRange(int *RangeInput, int length, int startRange, int endRange)
    int startvalue = RangeInput[0];
    int endvalue = RangeInput[0];
    sortedArrayPrintOnConsole(RangeInput,length);
-   for(int index = 0 ; index < arraysize; index++ ) 
+   for(int index = 0 ; index < length; index++ ) 
    {                                                                
       int diff = RangeInput[index+1] - RangeInput[index];           
       int isconsecutive=0;
