@@ -32,7 +32,7 @@ int isConsecutive(int diff)
    return consecutive;
 }
 
-sortedArrayPrintOnConsole(RangeInput,length)
+void sortedArrayPrintOnConsole(int * RangeInput,int length)
 {
    printf("sorted array\n");
    for(int i=0;i<length;i++)
