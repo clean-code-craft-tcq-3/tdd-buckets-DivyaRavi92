@@ -12,8 +12,14 @@ TEST_CASE("test1-no definition") {
 }
 
 //TDD_STEP2: Write the actual definition in .c file but without any content, so test will fail
-TEST_CASE("test2-test condition fails") {
+TEST_CASE("test2 2 different consecutive readings") {
    int sampleRange[] ={3,3,5,4,10,11,12};
    int arrayLength = sizeof(sampleRange)/ sizeof(sampleRange[0]);
    REQUIRE(getBatteryRange(sampleRange,arrayLength) == 1);
+   
+//TDD_STEP3: 
+TEST_CASE("test3 - No continuous reading found") {
+   int sampleRange[] ={3,6,10,12};
+   int arrayLength = sizeof(sampleRange)/ sizeof(sampleRange[0]);
+   REQUIRE(getBatteryRange(sampleRange,arrayLength) == 0);
 }
