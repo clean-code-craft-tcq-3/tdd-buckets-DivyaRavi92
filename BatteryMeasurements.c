@@ -46,7 +46,7 @@ void printOnConsole(int* RangeInput, int size)
    for(int i  = 0; i <= size; i++)
    {
         printf("Range - Readings\n");
-        printf("%d - %d, %d", RangeInput[0], RangeInput[size-1], size);
+        printf("%d - %d, %d\n", RangeInput[0], RangeInput[size-1], size);
    }
 
 }
