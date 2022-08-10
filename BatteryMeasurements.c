@@ -14,31 +14,8 @@ void sortArray(int *RangeInput, int length)
           RangeInput[startEl] = RangeInput[nextElm];
           RangeInput[nextElm] = tempElm;
         }
- 
        }
-    }
-    
-}
-
-int checkConsecutive(int *RangeInput, int size)
-{
-    int readings[size];
-    int begin[size];
-    int end[size];
-    bool rangeCheckIsConsecutive = false;
-    int isConsecutive = 0, k=0, startEl;
-    for (startEl=0; startEl < size-1; ++startEl) 
-    {
-        if (RangeInput[startEl+1] - RangeInput[startEl] == 0 || RangeInput[startEl+1] - RangeInput[startEl] == 1)
-        {
-          isConsecutive +=1;
-        }
-        else
-        {
-            return isConsecutive;  
-        }
-    }
-    return isConsecutive;  
+    }    
 }
 
 void printOnConsole(int* RangeInput, int size)   
@@ -47,19 +24,55 @@ void printOnConsole(int* RangeInput, int size)
     printf("%d - %d, %d\n", RangeInput[0], RangeInput[size-1], size);
 }
 
-bool getBatteryRange(int *RangeInput, int length, int startRange, int endRange)
+int isConsecutive(int diff)
 {
-   sortArray(RangeInput, length);
+   int consecutive = 0;
+   if((diff==0) || (diff)==1)
+     consecutive=1;
+   return consecutive;
+}
+
+sortedArrayPrintOnConsole(RangeInput,length)
+{
    printf("sorted array\n");
    for(int i=0;i<length;i++)
    {
        printf("%d\n",RangeInput[i]);
    }
-   int  ConsecutiveVal  = checkConsecutive(RangeInput, length);
-   if(ConsecutiveVal >= 1)
-   {
-       int size = ConsecutiveVal+1;
-       printOnConsole(RangeInput, size);
-   }
-   return true;
+}
+
+bool getBatteryRange(int *RangeInput, int length, int startRange, int endRange)
+{
+   int consecutivecount = 0;
+   bool isRangeContinuous = false;
+   sortArray(RangeInput, length);
+   int startvalue = RangeInput[0];
+   int endvalue = RangeInput[0];
+   sortedArrayPrintOnConsole(RangeInput,length);
+   for(int index = 0 ; index < arraysize; index++ ) 
+   {                                                                
+      int diff = RangeInput[index+1] - RangeInput[index];           
+      int isconsecutive=0;
+      isconsecutive = isConsecutive(diff);
+      if(isconsecutive == 1)
+      {
+         consecutivecount++;
+         endvalue = RangeInput[index+1];
+      }
+      else if(consecutivecount >= 1) 
+      {
+        isRangeContinuous = true;
+        consecutivecount++;
+        printOnConsole(startvalue,endvalue, consecutivecount);
+        startvalue = RangeInput[index+1];
+        endvalue = RangeInput[index];
+        consecutivecount=0;
+      }
+      else
+      {
+         startvalue = RangeInput[index+1];
+         endvalue = RangeInput[index];
+      }
+    }
+    return isRangeContinuous;
 }  
