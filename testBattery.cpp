@@ -16,6 +16,7 @@ TEST_CASE("test2 2 different consecutive readings") {
    int sampleRange[] ={3,3,5,4,10,11,12};
    int arrayLength = sizeof(sampleRange)/ sizeof(sampleRange[0]);
    REQUIRE(getBatteryRange(sampleRange,arrayLength) == 1);
+}
    
 //TDD_STEP3: 
 TEST_CASE("test3 - No continuous reading found") {
