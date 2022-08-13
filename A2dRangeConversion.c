@@ -2,31 +2,40 @@
 
 int convertA2DToAmpere(int maxAmp,int A2Dvalue,int bitresolution)
 {
-   int Ampere = -1;
+   int ampereVal = -1;
    A2Dvalue = abs(A2Dvalue);
    int maxA2Dvalue = pow(2,bitresolution) - 2;
    if(bitresolution == 12)
    {
-      if(A2Dvalue <= maxA2Dvalue)
-      {
-        float convertedvalue = (float)maxAmp * (float)A2Dvalue/(float)maxA2Dvalue; 
-        Ampere = round(convertedvalue);
-      }
+      convertA2DtoAmpere12BitA2D(maxAmp, maxA2Dvalue, &ampereVal);
    }
-   
-   else if(bitresolution == 10)
+   else 
    {
-        if(A2Dvalue <= maxA2Dvalue)
-        {
-            float convertedvalue = (float)(2*maxAmp) * (float)A2Dvalue/(float)maxA2Dvalue; 
-            Ampere = round[(convertedvalue)-maxAmp);
-            Ampere = abs(Ampere);
-        }
-
+      convertA2DtoAmpere10BitA2D(maxAmp, maxA2Dvalue, &ampereVal);
    }
 
-   return Ampere;
+   return ampereVal;
 }
+
+void convertA2DtoAmpere12BitA2D(int maxAmp, int maxA2Dvalue, int *ampereVal)
+{
+    if(A2Dvalue <= maxA2Dvalue)
+    {
+        float convertedvalue = (float)maxAmp * (float)A2Dvalue/(float)maxA2Dvalue; 
+        *ampereVal = round(convertedvalue);
+    }
+}
+
+void convertA2DtoAmpere10BitA2D(int maxAmp,int maxA2Dvalue, int *ampereVal)
+{
+    if(A2Dvalue <= maxA2Dvalue)
+    {
+        float convertedvalue = (float)(2*maxAmp) * (float)A2Dvalue/(float)maxA2Dvalue; 
+        *ampereVal = round[(convertedvalue)-maxAmp);
+        *ampereVal = abs(*ampereVal);
+    }
+}
+
 
 int convertA2DToAmpereRange(int A2Dvaluearray[], int arraysize, int* Amperearray, int maxAmp, int bitresolution)
 {
