@@ -24,3 +24,13 @@ TEST_CASE("test3 - No continuous reading found") {
    int arrayLength = sizeof(sampleRange)/ sizeof(sampleRange[0]);
    REQUIRE(getBatteryRange(sampleRange,arrayLength) == 0);
 }
+
+//TDD_STEP4:
+TEST_CASE("test4 - checking if all the sensor values are giving valid current ranges - by getting the count ") {
+   int AnalogArray[] = {1146,4094, 2045};
+   int arrayLength = sizeof(AnalogArray) / sizeof(AnalogArray[0]);  
+   int Amperearray[] = {0};
+   int maxAmp = 10;
+   int bitresolution = 12;
+   REQUIRE(convertA2DToAmpereRange(int AnalogArray[], int arrayLength, int* Amperearray, int maxAmp, int bitresolution) == 3)
+}
