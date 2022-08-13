@@ -27,11 +27,21 @@ TEST_CASE("test3 - No continuous reading found") {
 }
 
 //TDD_STEP4:
-TEST_CASE("test4 - checking if all the sensor values are giving valid current ranges - by getting the count ") {
+TEST_CASE("test4 - checking if all the sensor values are giving valid current ranges for 12 bit  - by getting the count ") {
    int AnalogArray[] = {1146,4094, 2045};
    int arrayLength = sizeof(AnalogArray) / sizeof(AnalogArray[0]);  
    int Amperearray[] = {0};
    int maxAmp = 10;
    int bitresolution = 12;
+   REQUIRE(convertA2DToAmpereRange(AnalogArray, arrayLength, Amperearray, maxAmp, bitresolution) == 3);
+}
+
+//TDD_STEP4:
+TEST_CASE("test4 - checking if all the sensor values are giving valid current ranges for 15 bit- by getting the count ") {
+   int AnalogArray[] = {1022,0,511};
+   int arrayLength = sizeof(AnalogArray) / sizeof(AnalogArray[0]);  
+   int Amperearray[] = {0};
+   int maxAmp = 15;
+   int bitresolution = 10;
    REQUIRE(convertA2DToAmpereRange(AnalogArray, arrayLength, Amperearray, maxAmp, bitresolution) == 3);
 }
