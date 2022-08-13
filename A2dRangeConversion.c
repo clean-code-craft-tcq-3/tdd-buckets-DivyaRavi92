@@ -31,7 +31,7 @@ void convertA2DtoAmpere10BitA2D(int maxAmp,int maxA2Dvalue, int *ampereVal)
     if(A2Dvalue <= maxA2Dvalue)
     {
         float convertedvalue = (float)(2*maxAmp) * (float)A2Dvalue/(float)maxA2Dvalue; 
-        *ampereVal = round[(convertedvalue)-maxAmp);
+        *ampereVal = round[(convertedvalue)-maxAmp];
         *ampereVal = abs(*ampereVal);
     }
 }
