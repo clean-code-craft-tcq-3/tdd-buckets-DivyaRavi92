@@ -36,8 +36,8 @@ TEST_CASE("test4 - checking if all the sensor values are giving valid current ra
    REQUIRE(convertA2DToAmpereRange(AnalogArray, arrayLength, Amperearray, maxAmp, bitresolution) == 3);
 }
 
-//TDD_STEP4:
-TEST_CASE("test4 - checking if all the sensor values are giving valid current ranges for 15 bit- by getting the count ") {
+//TDD_STEP5:
+TEST_CASE("test5 - checking if all the sensor values are giving valid current ranges for 15 bit- by getting the count ") {
    int AnalogArray[] = {1022,0,511};
    int arrayLength = sizeof(AnalogArray) / sizeof(AnalogArray[0]);  
    int Amperearray[] = {0};
