@@ -66,5 +66,13 @@ TEST_CASE("test8 - a2d values converted used to split battery range ") {
    int Amperearray[] = {0};
    int ampereArraySize = convertA2DToAmpereRange(AnalogArray, arrayLength, Amperearray, 15, 10);
    REQUIRE(getBatteryRange(Amperearray,ampereArraySize) == 1);
-   
+}
+
+//TDD_STEP9:
+TEST_CASE("test9 - Giving negative values to see if it is converted to positive and computed ") {
+   int AnalogArray[] = {-1022,0,-511};
+   int arrayLength = sizeof(AnalogArray) / sizeof(AnalogArray[0]);  
+   int Amperearray[] = {0};
+   int ampereArraySize = convertA2DToAmpereRange(AnalogArray, arrayLength, Amperearray, 15, 10);
+   REQUIRE(getBatteryRange(Amperearray,ampereArraySize) == 1);
 }
