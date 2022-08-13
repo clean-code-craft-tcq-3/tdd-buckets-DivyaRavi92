@@ -7,17 +7,17 @@ int convertA2DToAmpere(int maxAmp,int A2Dvalue,int bitresolution)
    int maxA2Dvalue = pow(2,bitresolution) - 2;
    if(bitresolution == 12)
    {
-      convertA2DtoAmpere12BitA2D(maxAmp, maxA2Dvalue, &ampereVal);
+      convertA2DtoAmpere12BitA2D(maxAmp, A2Dvalue, maxA2Dvalue, &ampereVal);
    }
    else 
    {
-      convertA2DtoAmpere10BitA2D(maxAmp, maxA2Dvalue, &ampereVal);
+      convertA2DtoAmpere10BitA2D(maxAmp, A2Dvalue, maxA2Dvalue, &ampereVal);
    }
 
    return ampereVal;
 }
 
-void convertA2DtoAmpere12BitA2D(int maxAmp, int maxA2Dvalue, int *ampereVal)
+void convertA2DtoAmpere12BitA2D(int maxAmp, int A2Dvalue, int maxA2Dvalue, int *ampereVal)
 {
     if(A2Dvalue <= maxA2Dvalue)
     {
