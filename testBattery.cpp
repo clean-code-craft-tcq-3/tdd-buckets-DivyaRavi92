@@ -53,7 +53,7 @@ TEST_CASE("test6 - a2d values converted used to split battery range ") {
    int Amperearray[] = {0};
    int maxAmp = 15;
    int bitresolution = 10;
-   ampereArraySize = convertA2DToAmpereRange(AnalogArray, arrayLength, Amperearray, maxAmp, bitresolution);
+   int ampereArraySize = convertA2DToAmpereRange(AnalogArray, arrayLength, Amperearray, maxAmp, bitresolution);
    REQUIRE(getBatteryRange(Amperearray,ampereArraySize) == 3);
    
 }
