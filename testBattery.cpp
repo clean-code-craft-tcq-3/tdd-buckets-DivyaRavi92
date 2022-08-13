@@ -2,6 +2,7 @@
 
 #include "test/catch.hpp"
 #include "BatteryMeasurements.h"
+#include "A2dRangeConversion.h"
 
 
 //TDD_STEP1: Write only the test code without the actual definition in .c file
