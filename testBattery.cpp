@@ -33,5 +33,5 @@ TEST_CASE("test4 - checking if all the sensor values are giving valid current ra
    int Amperearray[] = {0};
    int maxAmp = 10;
    int bitresolution = 12;
-   REQUIRE(convertA2DToAmpereRange(int AnalogArray[], int arrayLength, int* Amperearray, int maxAmp, int bitresolution) == 3)
+   REQUIRE(convertA2DToAmpereRange(AnalogArray[], arrayLength, Amperearray, maxAmp, bitresolution) == 3)
 }
