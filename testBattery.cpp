@@ -31,9 +31,7 @@ TEST_CASE("test4 - checking if all the sensor values are giving valid current ra
    int AnalogArray[] = {1146,4094, 2045};
    int arrayLength = sizeof(AnalogArray) / sizeof(AnalogArray[0]);  
    int Amperearray[] = {0};
-   int maxAmp = 10;
-   int bitresolution = 12;
-   REQUIRE(convertA2DToAmpereRange(AnalogArray, arrayLength, Amperearray, maxAmp, bitresolution) == 3);
+   REQUIRE(convertA2DToAmpereRange(AnalogArray, arrayLength, Amperearray, 10, 12) == 3);
 }
 
 //TDD_STEP5:
@@ -41,9 +39,7 @@ TEST_CASE("test5 - No valid values ") {
    int AnalogArray[] = {4095};
    int arrayLength = sizeof(AnalogArray) / sizeof(AnalogArray[0]);  
    int Amperearray[] = {0};
-   int maxAmp = 10;
-   int bitresolution = 12;
-   REQUIRE(convertA2DToAmpereRange(AnalogArray, arrayLength, Amperearray, maxAmp, bitresolution) == 0);
+   REQUIRE(convertA2DToAmpereRange(AnalogArray, arrayLength, Amperearray, 10, 12) == 0);
 }
 
 //TDD_STEP6:
@@ -51,9 +47,7 @@ TEST_CASE("test6 - checking if all the sensor values are giving valid current ra
    int AnalogArray[] = {1022,0,511};
    int arrayLength = sizeof(AnalogArray) / sizeof(AnalogArray[0]);  
    int Amperearray[] = {0};
-   int maxAmp = 15;
-   int bitresolution = 10;
-   REQUIRE(convertA2DToAmpereRange(AnalogArray, arrayLength, Amperearray, maxAmp, bitresolution) == 3);
+   REQUIRE(convertA2DToAmpereRange(AnalogArray, arrayLength, Amperearray, 15, 10) == 3);
 }
 
 //TDD_STEP7:
@@ -61,9 +55,7 @@ TEST_CASE("test6 - checking the number of valid current ranges for 15 bit- by ge
    int AnalogArray[] = {1022,0,511, 1024,400};
    int arrayLength = sizeof(AnalogArray) / sizeof(AnalogArray[0]);  
    int Amperearray[] = {0};
-   int maxAmp = 15;
-   int bitresolution = 10;
-   REQUIRE(convertA2DToAmpereRange(AnalogArray, arrayLength, Amperearray, maxAmp, bitresolution) == 4);
+   REQUIRE(convertA2DToAmpereRange(AnalogArray, arrayLength, Amperearray, 15, 10) == 4);
 }
 
 
@@ -72,9 +64,7 @@ TEST_CASE("test8 - a2d values converted used to split battery range ") {
    int AnalogArray[] = {1022,0,511, 1022};
    int arrayLength = sizeof(AnalogArray) / sizeof(AnalogArray[0]);  
    int Amperearray[] = {0};
-   int maxAmp = 15;
-   int bitresolution = 10;
-   int ampereArraySize = convertA2DToAmpereRange(AnalogArray, arrayLength, Amperearray, maxAmp, bitresolution);
+   int ampereArraySize = convertA2DToAmpereRange(AnalogArray, arrayLength, Amperearray, 15, 10);
    REQUIRE(getBatteryRange(Amperearray,ampereArraySize) == 1);
    
 }
