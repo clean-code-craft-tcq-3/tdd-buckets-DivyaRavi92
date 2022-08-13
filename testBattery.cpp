@@ -58,12 +58,12 @@ TEST_CASE("test6 - checking if all the sensor values are giving valid current ra
 
 //TDD_STEP7:
 TEST_CASE("test6 - checking the number of valid current ranges for 15 bit- by getting the count ") {
-   int AnalogArray[] = {1022,0,511, 1024};
+   int AnalogArray[] = {1022,0,511, 1024,400};
    int arrayLength = sizeof(AnalogArray) / sizeof(AnalogArray[0]);  
    int Amperearray[] = {0};
    int maxAmp = 15;
    int bitresolution = 10;
-   REQUIRE(convertA2DToAmpereRange(AnalogArray, arrayLength, Amperearray, maxAmp, bitresolution) == 3);
+   REQUIRE(convertA2DToAmpereRange(AnalogArray, arrayLength, Amperearray, maxAmp, bitresolution) == 4);
 }
 
 
