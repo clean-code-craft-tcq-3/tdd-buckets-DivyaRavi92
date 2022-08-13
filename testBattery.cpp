@@ -45,3 +45,15 @@ TEST_CASE("test5 - checking if all the sensor values are giving valid current ra
    int bitresolution = 10;
    REQUIRE(convertA2DToAmpereRange(AnalogArray, arrayLength, Amperearray, maxAmp, bitresolution) == 3);
 }
+
+//TDD_STEP6:
+TEST_CASE("test6 - a2d values converted used to split battery range ") {
+   int AnalogArray[] = {1022,0,511, 1022};
+   int arrayLength = sizeof(AnalogArray) / sizeof(AnalogArray[0]);  
+   int Amperearray[] = {0};
+   int maxAmp = 15;
+   int bitresolution = 10;
+   ampereArraySize = convertA2DToAmpereRange(AnalogArray, arrayLength, Amperearray, maxAmp, bitresolution);
+   REQUIRE(getBatteryRange(Amperearray,ampereArraySize) == 3);
+   
+}
